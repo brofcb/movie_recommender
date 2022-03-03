@@ -131,8 +131,7 @@ class _SecondPageState extends State<SecondPage> {
   Future<List<Movie>> fetchMovies(String movieName) async {
     print("Fetching");
     List<Movie> movies = <Movie>[];
-    final response = await http.get(Uri.parse(
-        "https://us-central1-unique-bebop-342715.cloudfunctions.net/knn_model?movie=$movieName"));
+    final response = await http.get(Uri.parse("CLOUD_FUNCTION_TRIGGER_LINK=$movieName"));
     print(response.body);
     print("Hello");
     if (response.statusCode == 200) {
